@@ -1,0 +1,36 @@
+When you think about using local storage , these phases to that correctly !
+
+Step one :
+
+- provide array to hold what you needed of data
+
+Step two :
+
+-  do : localStorage.setItem("var-name",JSON.stringify(arr));
+where this method to convert the array to string
+
+step three :
+
+- under the definition the array (Directly) do :
+
+* hold data when we do reload to the page because the array be [] in first of this file
+* so when we have data from local storage , you want to hold this data to the array .!
+
+    if(localStorage.getItem("var")){
+        let data = localStorage.getItem("var");
+        arrTasks = JSON.parse(data);
+    }
+
+* JSON.parse(data) : [ This method to convert string from localStorage to the object to storage in normal array ]
+
+step four :
+- show holded data to the page (Normal Page) 
+
+function getStoreData(){
+    let data = localStorage.getItem("var");    
+    // this condition to check if data exist or not !
+    if(data){
+        let tasks = JSON.parse(data);
+        createPageElement(tasks); // createPageElement main method to show data to the page !
+    }
+}
